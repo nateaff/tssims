@@ -61,6 +61,13 @@ jitter_params.logistic <- function(mod, percent = 0.01){
 }
 
 #' @export 
+jitter_params.weierstrass <- function(mod, percent = 0.10){
+  delta <- percent*runif(1, 0, 1) * mod$a * rsign(1)
+  a <- mod$a + delta
+  weierstrass(a) 
+}
+
+#' @export 
 jitter_params.default <- function(mod, percent = 0.10){
   mod
 }
