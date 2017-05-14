@@ -57,7 +57,11 @@ sim_suite <- function(){
 
   return(list(group1 = group1, group2 = group2))
 }
-
+#' Returns the names corresonding to functions of \code{sim_suite()}
+#'
+#'
+#' @return  A vector of function names
+#' @export
 sim_names <- function() {
   c("ARMA", "Logistic", "Weierstrass", "Mackey_Glass", "FARIMA", "fBm")
 }
