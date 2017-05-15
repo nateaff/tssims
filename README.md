@@ -41,3 +41,11 @@ plot.ts(fs,
 ```
 
 ![](figures/README-unnamed-chunk-3-1.png)
+
+Installation
+============
+
+``` r
+install.packages("devtools") 
+install_github("nwaff/tssims")
+```
