@@ -1,3 +1,24 @@
+#' Cauchy model
+#'
+#' This is a wrapper for the Cauchy process model 
+#' in the RandomFields package. The parameters 
+#' alpha and beta are smoothness and power scaling 
+#' parameters. The time series has autocovariance 
+#' function C(h) = (1 + r^alpha)^(-beta/alpha).
+#' Fractal dimension D = alpha + 1 - alpha/2, alpha in (0,2]
+#' Hurst parameter : H = 1 - beta/2, beta > 0.
+#'
+#' @param  alpha The alpha parameter proportional to 
+#'                the fractal dimension of the time series.
+#' @param  beta The beta parameter proportional to the 
+#'              Hurst parameeter of the time series.
+#'
+#' @return  A Cauchy process model.
+cauchy <- function(alpha, beta){
+    structure(list(alpha = alpha, beta = beta), class = "cauchy")
+}
+
+
 #' Create an ARMA model.
 #'
 #' @param ar x parameter.
@@ -85,6 +106,20 @@ fBm <- function(H){
 #'  parameters in mod 
 #' @export
 gen <- function(mod) UseMethod("gen")
+
+
+#'@export
+#'@importFrom RandomFields RMgencauchy
+#'@importFrom RandomFields RFsimulate
+gen.cauchy <- function(mod){
+  mod <- suppressWarnings(RandomFields::RMgencauchy(mod$alpha, mod$beta))
+  function(n){
+    x = seq(0, 1, length.out = n)
+    # Returns R4 object
+    y = RandomFields::RFsimulate(mod, x = x)
+    y@data[,1]
+  } 
+}
 
 #' @export 
 #' @importFrom fArma fbmSim
