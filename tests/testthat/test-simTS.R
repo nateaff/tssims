@@ -18,14 +18,15 @@ tsuite <- function(){
   weiera   <- weierstrass(a = 0.8, b = 4)
   weierb  <- weierstrass(a = 0.8, b = 4, random = FALSE)
   weierc  <- weierstrass(a = 0.3)
-
+  cauch <- cauchy(alpha = 0.1, beta = 0.1)
   test_fs <- list(arma = arma, 
                   log = log, 
                   weiera = weiera,
                   weierb= weierb,
                   weierc = weierc,
                   mg = mg, 
-                  farima = farima)
+                  farima = farima, 
+                  cauchy = cauch)
   return(test_fs)
 }
 
@@ -65,7 +66,6 @@ test_that("the one and two parameter weierstrass are the same", {
    expect_that(all(yb1 == yb2), is_true())
    expect_that(all(yc1 == yc2), is_true())
 })
-
 
 
 

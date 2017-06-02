@@ -11,7 +11,8 @@ LazyData: true
 Maintainer: 'Nathanael Aff' <nathanaelaff@gmail.com>
 Imports: 
   fArma, 
-  fracdiff
+  fracdiff, 
+  RandomFields
 Suggests:
     testthat
 RoxygenNote: 5.0.1
