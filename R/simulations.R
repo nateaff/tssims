@@ -14,6 +14,7 @@
 #'              Hurst parameeter of the time series.
 #'
 #' @return  A Cauchy process model.
+#' @export
 cauchy <- function(alpha, beta){
     structure(list(alpha = alpha, beta = beta), class = "cauchy")
 }
