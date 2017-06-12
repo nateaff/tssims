@@ -19,10 +19,10 @@ knitr::opts_chunk$set(
 
 This package contains a small set of simulation functions. The fractional Brownian motion and FARIMA functions are wrappers for the corresponding functions in the fArma and fracdiff packages, respectively. 
 
-The simulation 'model' is created separately from the function. This was done to enable easier randomization of the model parameters using the `jitter_params` function.
+The simulation model is created separately from the function. This was done to enable easier randomization of the model parameters using the `jitter_params` function.
 
 # Example 
-Calling the base simulation function generates the model parameters. The `gen` returns a function which takes a single length parameter.
+Calling the base simulation function generates the model parameters. The function `gen` returns a function which takes a single length parameter.
 
 ```{r, echo = TRUE}
 # The model
