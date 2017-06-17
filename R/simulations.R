@@ -161,7 +161,7 @@ gen.weierstrass <- function(mod){
     f <- function(x){
       if(random){ 
         # cat("update theta \n");
-        theta <- runif(1) }
+        theta <- runif(n) }
         sum((c^(-a*n)*cos((c^n)*x + theta*2*pi)))
     }
   unlist(Map(f,y))
