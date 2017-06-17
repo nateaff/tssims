@@ -53,7 +53,7 @@ arma <- function(ar, ma){
 #'                are computed. 
 #' @return The parametrized model.
 #' @export
-weierstrass <- function(a, b = 0, c = 2, random = TRUE, density = 1){
+weierstrass <- function(a, b = 0, c = 2, addnorm = TRUE, random = TRUE, density = 1){
     structure(list(a = a, b = b, c = 2, random = random, density = density), 
                    class = "weierstrass")
 }
@@ -149,6 +149,7 @@ gen.weierstrass <- function(mod){
   c       <- mod$c
   random  <- mod$random
   density <- mod$density
+  addnorm <- mod$addnorm
   if(!(0 < a) || !(a < 1)) warning("Parameter 'a' is not in (0,1)") 
   # convert a, b to a paramter
   if (b != 0){
@@ -162,6 +163,7 @@ gen.weierstrass <- function(mod){
       if(random){ 
         # cat("update theta \n");
         theta <- runif(n) }
+        c <- rnorm(length(x))
         sum((c^(-a*n)*cos((c^n)*x + theta*2*pi)))
     }
   unlist(Map(f,y))
