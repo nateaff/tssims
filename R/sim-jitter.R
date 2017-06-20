@@ -68,6 +68,13 @@ jitter_params.weierstrass <- function(mod, percent = 0.10){
 }
 
 #' @export 
+jitter_params.cauchy <- function(mod, percent = 0.10){
+  alpha <- percent *runif(1, 0, 1) * mod$alpha * rsign(1)
+  beta  <- percent * runif(1, 0, 1) * mod$beta  * rsing(1)
+  cauchy(alpha, beta)
+}
+
+#' @export 
 jitter_params.default <- function(mod, percent = 0.10){
   mod
 }
