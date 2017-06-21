@@ -18,8 +18,8 @@ sim_suite <- function(){
   log1 <- logistic(r = 3.87)
   log2 <- logistic(r = 3.70)
 
-  cauchy1 <- cauchy(alpha = 0.11, beta = 0.5) 
-  cauchy2 <- cauchy(alpha = 0.22, beta = 0.7)
+  cauchy1 <- cauchy(alpha = 0.1, beta = 0.5) 
+  cauchy2 <- cauchy(alpha = 0.3, beta = 0.7)
   # mg1 <- mackeyglass(tau = 27, 
   #                    beta = 0.3, 
   #                    gamma = 0.1,
